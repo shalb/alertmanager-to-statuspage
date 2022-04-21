@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alertmanager-to-telegram
+  labels:
+    role: alertmanager-to-telegram
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alertmanager-to-telegram
+  template:
+    metadata:
+      labels:
+        role: monitoring
+        app: alertmanager-to-telegram
+    spec:
+      containers:
+        - name: alertmanager-to-telegram
+          image: shalb/alertmanager-to-telegram:0.0.1
+          ports:
+            - containerPort: 9647
+          resources:
+            requests:
+              memory: "0.1Gi"
+              cpu: "0.1"
+            limits:
+              memory: "0.1Gi"
+              cpu: "0.1"
+          env:
+            - name: URL
+              value: "{{ .Values.url }}"
+            - name: API_KEY
+              value: "{{ .Values.api_key }}"
+            - name: CHAT_ID
+              value: "{{ .Values.chat_id }}"
+            - name: KEYS_TO_EXCLUDE
+              value: "{{ .Values.keys_to_exclude }}"
+            - name: LOG_LEVEL
+              value: "{{ .Values.log_level }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alertmanager-to-telegram
+  labels:
+    app: alertmanager-to-telegram
+spec:
+  selector:
+    app: alertmanager-to-telegram
+  ports:
+    - name: metrics
+      protocol: TCP
+      port: 9647
+      targetPort: 9647

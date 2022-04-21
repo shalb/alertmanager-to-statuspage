@@ -1,0 +1,7 @@
+releases:
+  - name: alertmanager-to-telegram
+    namespace: monitoring
+    chart: alertmanager-to-telegram
+    version: 0.0.1
+    values:
+      - alertmanager-to-telegram/values.yaml

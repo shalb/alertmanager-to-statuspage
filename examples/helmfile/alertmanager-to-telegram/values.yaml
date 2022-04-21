@@ -1,0 +1,6 @@
+url: https://api.telegram.org/
+api_key: 'bot000000000:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+chat_id: '-000000000'
+keys_to_exclude: ''
+#keys_to_exclude: 'runbook_url externalURL generatorURL'
+log_level: INFO

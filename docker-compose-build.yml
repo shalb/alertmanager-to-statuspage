@@ -1,0 +1,7 @@
+version: '2'
+services:
+  alertmanager-to-statuspage:
+    build:
+      context: ./
+    image: shalb/alertmanager-to-statuspage:0.0.1
+

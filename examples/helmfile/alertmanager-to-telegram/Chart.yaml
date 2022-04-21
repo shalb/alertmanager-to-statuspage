@@ -1,0 +1,4 @@
+apiVersion: v1
+name: alertmanager-to-telegram
+version: 0.0.1
+description: Service to accept alertmanager web hooks and send alerts to telegram

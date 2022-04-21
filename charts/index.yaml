@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  alertmanager-to-telegram:
+  - apiVersion: v1
+    created: 2021-04-30T13:14:21.710138754Z
+    description: Service to accept alertmanager web hooks and send alerts to telegram
+    digest: 4ebb291ef56baed23111628f45188cd7cacfbc1cab2507dbe47f5e778360a676
+    name: alertmanager-to-telegram
+    urls:
+    - https://raw.githubusercontent.com/shalb/alertmanager-to-telegram/main/charts/alertmanager-to-telegram-0.0.1.tgz
+    version: 0.0.1
+generated: 2021-04-30T13:14:21.708861961Z
